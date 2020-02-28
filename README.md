@@ -4,6 +4,7 @@ Intract social networking site, built with PHP, MariaDB, JavaScript.
 ## Architecture / Philosophies
 * HTML, SCSS, JavaScript, Node for the Front-End.
 * Native PHP, MariaDB / IBM DB2 for the Back-End.
+* Usage of Agile Process Model.
 * Hosted on a Cloud provider.
 * Coded in English.
 
