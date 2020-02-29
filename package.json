@@ -1,0 +1,26 @@
+{
+  "name": "intract",
+  "version": "1.0.0",
+  "description": "Intract Social Networking Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauslim12/intract-social-network.git"
+  },
+  "author": "Nicholas Dwiarto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauslim12/intract-social-network/issues"
+  },
+  "homepage": "https://github.com/lauslim12/intract-social-network#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "concat": "^1.0.3",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0"
+  }
+}
