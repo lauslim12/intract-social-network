@@ -7,6 +7,7 @@
   *   Replace any spaces with no space.
   *   Capitalize some of the variables's first character.
   *   Email comparision, password comparision, and hashing.
+  *   Closing the database object connection at the final line (not needed anymore).
   */
 
   if(isset($_POST['register_button'])) {
@@ -27,13 +28,11 @@
     $email = strip_tags($_POST['email']);
     $email = str_replace(' ', '', $email);
     $email = strtolower($email);
-    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $_SESSION['email'] = $email;
 
     $email2 = strip_tags($_POST['email2']);
     $email2 = str_replace(' ', '', $email2);
     $email2 = strtolower($email2);
-    $email2 = filter_var($email2, FILTER_SANITIZE_EMAIL);
 
     $password = strip_tags($_POST['password']);
     $password = str_replace(' ', '', $password);
@@ -47,8 +46,28 @@
 
     $gender = $_POST['gender'];
 
-    // Compare email.
+    // Compare username from usernames at the database.
+    if($username_checker = $db->prepare("SELECT username FROM users WHERE username = ?")) {
+      $username_checker->bind_param("s", $username);
+      $username_checker->execute();
+      $username_checker->store_result();
+      $num_rows = $username_checker->num_rows();
+
+      if($num_rows > 0) {
+        array_push($error_array, "Username is already in use!");
+      }
+
+      $username_checker->free_result();
+      $username_checker->close();
+      $db->close();
+    }
+    else {
+      array_push($error_array, "Something is happening. Please retry!");
+    }
+
+    // Compare email from the emails at the database.
     if($email == $email2) {
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
       if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
@@ -67,6 +86,7 @@
         }
 
         // Always close the statement to prevent memory leaks.
+        $email_checker->free_result();
         $email_checker->close();
       }
       else {
@@ -119,6 +139,7 @@
                         $fname, $lname, $username, $email, $password, $birthday, $gender, $signup_date,
                         $profile_picture, $initial_number, $initial_number, $initial_user_closed, $initial_user_friends);
         $stmt->execute();
+        $stmt->free_result();
         $stmt->close();
         
         array_push($error_array, "<span>You're registered! Please login!</span><br>");
