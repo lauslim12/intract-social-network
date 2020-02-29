@@ -17,8 +17,13 @@ For now, the website has three features, more will be added as the project progr
 * Login System
 * Profile System
 
-## Production Code
-Coming soon as I'm writing the production code.
+## Production Code for SASS/SCSS
+* Start is used to autorun SASS compilers.
+* Compiling the SASS code into CSS.
+* Concat any third-party CSS with the main CSS.
+* Prefix the CSS with browser-specific prefixes.
+* Compress / obfuscate the CSS code to prevent scrapers.
+* Run all for production code.
 
 ## Project Structure
 The project structure will follow the Model, View, Controller style with a mixed addition of PHP Official Structure from https://docs.php.earth/faq/misc/structure/.
