@@ -1,0 +1,59 @@
+/* Imports (Source: https://github.com/HugoGiraudel/sass-boilerplate) */
+
+/* TODO List
+- Variable name: Color grey dark-1.
+- Border radius to 3rems -> make a variable.
+- Change all centered elements to be a mixin.
+*/
+
+/* Notes from Jonas's Course (simple lecture notes kind of thing):
+- Box-shadows X should be zero -> box-shadow: 0 5rem 5rem rgba...
+- Padding: top right should be bigger than bottom left for input/intervals (anything that is not a section).
+- Border Radius/Elements: Use px's instead of rem as I do not want the borders to change if user changes the default font size.
+
+Architecture and Philosophies
+- Float Layout Grid System Used
+- Think, Build, Architect Philosophy (Component Driven Design (Skeleton Blocks), BEM, 7-1 Patterns)
+- Desktop-first Build
+- BEM Methodology
+- Three Pillars of HTML and CSS: Responsive Design (@Media), Maintainable and Scaleable Code, Web Performance.
+- Keyframes, Rems, Ems, Viewport Units
+- Responsive Images (Density Switching and Art Direction, Resolution Switching and Density Switching)
+- Parsing CSS: Maximum Usage of Cascade, Value Processing (Rems, Ems), and Inheritance.
+- Complete with NPM Build Process
+
+Sassy CSS:
+- CSS 7 in 1 Architecture (SASS Boilerplate): SMACSS SASS Guidelines.
+- Follows SASS Guidelines to the best of my ability: https://sass-guidelin.es/.
+- Principles: KISS (Keep it Simple Stupid) and DRY (Don't Repeat Yourself).
+- Best Practises in Responsive Design (Centering with Translate, etcetera).
+- Reusable and Maintainable Code (Mixins, Variables)
+- Graceful Degradation (SCSS @Supports)
+
+Build Process:
+- Compile SASS
+- Concat SASS + 3rd Part CSS
+- Prefix the CSS code with webkit, moz, ms, etcetera
+- Compress the CSS
+- Done
+
+CSS Theories could be found on Jonas's Udemy Course (his slides and videos are extremely helpful!)
+
+*/
+
+// 1. Configuration and helpers
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+// 2. Base stuff
+@import 'base/animations';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+// 3. Components.
+
+// 4. Layout related sections.
+
+// 5. Page-specific styles.

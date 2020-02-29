@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // Definition of 1 rem (10px).
+  font-size: 62.5%; // 1 rem -> 10px, then 10px/16px = 62.5%.
+
+  // Width less than 1200px.
+  @include responsive(tab-land) {
+    font-size: 56.25%; // 1 rem -> 9px, so 9px/16px = 56.25%.
+  }
+
+  // Width less than 900px.
+  @include responsive(tab-port) {
+    font-size: 50%; // 1 rem -> 8px, so 8px/16px = 50%.
+  }
+
+  @include responsive(big-desktop) {
+    font-size: 75%; // 1 rem -> 12px, so 12px/16px = 75%.
+  }
+
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include responsive(tab-port) {
+    padding: 0;
+  }
+
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

@@ -1,0 +1,75 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin centerElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin hideElement {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin showElement {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Media Queries (Responsive)
+Responsive Design Guidelines:
+- (0 - 600px) is phone.
+- (600 - 900px) is tablet-small, named as tab-port. (portrait)
+- (900 - 1200px) is tablet-landscape, named as tab-land. (landscape)
+- (1200 - 1800px) is our normal styles.
+- (1800 - infinity) is big desktops, named as big-desktop (4Ks).
+
+For responsiveness, I use ems. 1 em equals 16px.
+
+Order for changing responsiveness:
+No need to add many changes, as the html font-size (with rem and percentages) are taking care most of the changes.
+I just need to edit some minor stuff.
+- Base + typography 
+- General layout + grid.
+- Page layout (specific)
+- Components
+*/
+
+@mixin responsive($breakpoint) {
+
+  // Same as 600px!
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // Same as 900px!
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  // Same as 1200!
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  // Same as 1800!
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+
+}
