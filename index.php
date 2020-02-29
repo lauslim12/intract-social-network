@@ -1,6 +1,7 @@
 <?php
   require 'config/config.php';
   require 'src/controllers/form_handlers/register_handler.php';
+  require 'src/controllers/form_handlers/login_handler.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -11,6 +12,22 @@
 
   <body>
     <!-- Action left empty to prevent XSS. -->
+    <form action="" method="POST">
+      <input type="text" name="login_username" placeholder="Username or Email Address" /><br>
+      <input type="password" name="login_password" placeholder="Password" /><br>
+      <input type="submit" name="login_button" value="Submit">
+      <?php 
+      if(in_array("Wrong username!<br>", $error_array)) {
+        echo "Wrong username!<br>";
+      }
+
+      if(in_array("Wrong password!<br>", $error_array)) {
+        echo "Wrong password!<br>";
+      }
+      ?>
+    </form>
+    <br>
+
     <form action='' method="POST">
       <input type="text" name="fname" placeholder="First Name" value="<?php
         if(isset($_SESSION['fname'])) {
@@ -27,6 +44,7 @@
       <?php if(in_array("Your last name has to be between 2 to 25 characters!<br>", $error_array)) echo "Your last name has to be between 2 to 25 characters!<br>"; ?>
 
       <input type="text" name="username" placeholder="Username" required /><br>
+      <?php if(in_array("Username is already in use!", $error_array)) echo "Username is already in use!"; ?>
 
       <input type="email" name="email" placeholder="Email" value="<?php
         if(isset($_SESSION['email'])) {
