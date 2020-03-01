@@ -18,6 +18,7 @@ For now, the website has three features, more will be added as the project progr
 * Profile System
 
 TODO:
+* Google RECAPTCHA with Composer
 * Messaging System
 * IBM Cloud Native Applications (IBM Watson Assistant or IBM Natural Lang. Understanding)
 * User Interface
