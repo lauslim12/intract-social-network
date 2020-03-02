@@ -1,0 +1,203 @@
+/* Imports (Source: https://github.com/HugoGiraudel/sass-boilerplate) */
+/* TODO List
+- Variable name: Color grey dark-1.
+- Border radius to 3rems -> make a variable.
+- Change all centered elements to be a mixin.
+*/
+/* Notes from Jonas's Course (simple lecture notes kind of thing):
+- Box-shadows X should be zero -> box-shadow: 0 5rem 5rem rgba...
+- Padding: top right should be bigger than bottom left for input/intervals (anything that is not a section).
+- Border Radius/Elements: Use px's instead of rem as I do not want the borders to change if user changes the default font size.
+
+Architecture and Philosophies
+- Float Layout Grid System Used
+- Think, Build, Architect Philosophy (Component Driven Design (Skeleton Blocks), BEM, 7-1 Patterns)
+- Desktop-first Build
+- BEM Methodology
+- Three Pillars of HTML and CSS: Responsive Design (@Media), Maintainable and Scaleable Code, Web Performance.
+- Keyframes, Rems, Ems, Viewport Units
+- Responsive Images (Density Switching and Art Direction, Resolution Switching and Density Switching)
+- Parsing CSS: Maximum Usage of Cascade, Value Processing (Rems, Ems), and Inheritance.
+- Complete with NPM Build Process
+
+Sassy CSS:
+- CSS 7 in 1 Architecture (SASS Boilerplate): SMACSS SASS Guidelines.
+- Follows SASS Guidelines to the best of my ability: https://sass-guidelin.es/.
+- Principles: KISS (Keep it Simple Stupid) and DRY (Don't Repeat Yourself).
+- Best Practises in Responsive Design (Centering with Translate, etcetera).
+- Reusable and Maintainable Code (Mixins, Variables)
+- Graceful Degradation (SCSS @Supports)
+
+Build Process:
+- Compile SASS
+- Concat SASS + 3rd Part CSS
+- Prefix the CSS code with webkit, moz, ms, etcetera
+- Compress the CSS
+- Done
+
+CSS Theories could be found on Jonas's Udemy Course (his slides and videos are extremely helpful!)
+
+*/
+/* Media Queries (Responsive)
+Responsive Design Guidelines:
+- (0 - 600px) is phone.
+- (600 - 900px) is tablet-small, named as tab-port. (portrait)
+- (900 - 1200px) is tablet-landscape, named as tab-land. (landscape)
+- (1200 - 1800px) is our normal styles.
+- (1800 - infinity) is big desktops, named as big-desktop (4Ks).
+
+For responsiveness, I use ems. 1 em equals 16px.
+
+Order for changing responsiveness:
+No need to add many changes, as the html font-size (with rem and percentages) are taking care most of the changes.
+I just need to edit some minor stuff.
+- Base + typography 
+- General layout + grid.
+- Page layout (specific)
+- Components
+*/
+/* Heading animations */
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500&display=swap");
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem); }
+  80% {
+    transform: translateX(5rem); }
+  90% {
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box; }
+  @media only screen and (max-width: 56.25em) {
+    body {
+      padding: 0; } }
+
+::selection {
+  background-color: #0080ff;
+  color: #fff; }
+
+.u-center-text {
+  text-align: center !important; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 5rem !important; } }
+
+.u-margin-top-big {
+  margin-top: 8rem !important; }
+
+.u-margin-top-huge {
+  margin-top: 10rem !important; }
+
+input[type="submit"] {
+  background-color: #004589;
+  padding: .5rem 1.5rem;
+  border: 1px solid #004589;
+  border-radius: 3px;
+  margin-top: .5rem;
+  color: #fff; }
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+  border: 1px solid #eee;
+  margin-top: .5rem;
+  width: 70%;
+  padding: 1rem; }
+
+.navigation {
+  background-color: #0080ff;
+  width: 100%;
+  min-height: 7vh;
+  border-bottom: 1px solid #89c4ff;
+  display: inline-flex; }
+  .navigation__logo {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.6rem; }
+    .navigation__logo--link {
+      text-decoration: none;
+      color: #000; }
+
+.landing-body {
+  background-image: linear-gradient(to right bottom, #89c4ff, #004589);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.4rem; }
+
+.form-view {
+  text-align: center;
+  background-color: #fff;
+  width: 50%;
+  border-radius: 2.5px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .form-view__header {
+    background-color: #0080ff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem; }
+  .form-view__register {
+    display: none; }
+  .form-view__login a,
+  .form-view__register a {
+    line-height: 5rem;
+    color: #000;
+    text-decoration: none; }
