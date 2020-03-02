@@ -59,7 +59,6 @@
 
       $username_checker->free_result();
       $username_checker->close();
-      $db->close();
     }
     else {
       array_push($error_array, "Something is happening. Please retry!");
