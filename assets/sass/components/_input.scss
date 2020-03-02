@@ -1,0 +1,15 @@
+input[type="submit"] {
+  background-color: $color-primary-dark;
+  padding: .5rem 1.5rem;
+  border: 1px solid $color-primary-dark;
+  border-radius: 3px;
+  margin-top: .5rem;
+  color: $color-white;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+  border: 1px solid $color-grey-light-2;
+  margin-top: .5rem;
+  width: 70%;
+  padding: 1rem;
+}
