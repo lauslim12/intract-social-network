@@ -18,6 +18,7 @@ For now, the website has three features, more will be added as the project progr
 * Profile System
 
 TODO:
+* Sanitize input with `htmlspecialchars` and `filter_var()` after `strip_tags()` in register and login handler.
 * Google RECAPTCHA with Composer
 * Messaging System
 * IBM Cloud Native Applications (IBM Watson Assistant or IBM Natural Lang. Understanding)
@@ -32,7 +33,7 @@ TODO:
 * Run all for production code.
 
 ## Project Structure
-The project structure will follow the Model, View, Controller style with a mixed addition of PHP Official Structure from https://docs.php.earth/faq/misc/structure/.
+The project structure will follow the Model, View, Controller style with a mixed addition of PHP Official Structure from https://docs.php.earth/faq/misc/structure/, and PHP Standards Recommendation (PSR) from http://www.php-fig.org/psr/.
 
 ## Installations and Usage
 * Use PHP with version more than 5.5.
@@ -44,15 +45,3 @@ The project structure will follow the Model, View, Controller style with a mixed
 For Developers,
 * You can use `npm install` in order to modify the SASS file and or production CSS code.
 * Without `npm install`, it is still possible to use the website application though, as the node packages are only used for development dependencies.
-
-## Changelog
-See the changelog of the repository by checking the commit history. The ones listed here are the major progresses.
-
-#### Version 1.2 (29/02/2020, 10:35 GMT+7):
-* Login feature is done.
-
-#### Version 1.1 (28/02/2020, 22:30 GMT+7):
-* Registration feature is done.
-
-#### Version 1.0 (28/02/2020, 10:00 GMT+7):
-* Initial setup.
