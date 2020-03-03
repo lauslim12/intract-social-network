@@ -17,5 +17,5 @@ CREATE TABLE IF NOT EXISTS users (
   num_likes INT,
   user_closed VARCHAR(3),
   friend_array TEXT,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id, username, email)
 );
