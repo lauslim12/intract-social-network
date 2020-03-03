@@ -58,6 +58,7 @@ I just need to edit some minor stuff.
 */
 /* Heading animations */
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -117,6 +118,14 @@ body {
   background-color: #0080ff;
   color: #fff; }
 
+p {
+  margin-bottom: 0;
+  font-size: 1.2rem; }
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -155,16 +164,56 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   width: 70%;
   padding: 1rem; }
 
+.status-post:not(:last-child) {
+  margin-bottom: 1rem; }
+
+.status-post__posted-by {
+  color: #777;
+  padding: 2rem; }
+
+.status-post__profile-pic {
+  float: left;
+  margin-right: 1rem; }
+  .status-post__profile-pic img {
+    border-radius: 500px; }
+
 .user-details {
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 1.5rem;
-  width: 100%; }
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 90%;
+  min-width: 95rem;
+  position: relative; }
   .user-details__profile {
-    display: inline-block;
-    margin-left: 1rem; }
+    background-color: #eee;
+    padding: 1rem;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #999;
+    width: 40%; }
+    .user-details__profile img {
+      float: left;
+      padding-right: 1rem;
+      border-radius: 1000px; }
   .user-details__wall {
-    float: right; }
+    background-color: #eee;
+    padding: 1rem;
+    float: right;
+    border-radius: 5px;
+    border: 1px solid #999;
+    width: 55%; }
+  .user-details--form {
+    position: relative; }
+    .user-details--form > textarea {
+      border-radius: 5px;
+      padding: .5rem;
+      border: 1px solid #999; }
+      .user-details--form > textarea:hover, .user-details--form > textarea:focus, .user-details--form > textarea:active {
+        outline: none; }
+    .user-details--form > input[type="submit"] {
+      position: absolute;
+      padding: 3rem;
+      right: 3.5%;
+      top: -7%; }
 
 .navigation {
   background-color: #0080ff;
@@ -173,12 +222,17 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   border-bottom: 1px solid #89c4ff;
   display: inline-flex;
   position: relative; }
+  .navigation__center {
+    margin: 0 auto; }
+    .navigation__center--par {
+      font-size: 1.6rem;
+      color: #fff; }
   .navigation__logo {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem; }
     .navigation__logo--link {
       text-decoration: none;
-      color: #000; }
+      color: #fff; }
   .navigation__items {
     float: right;
     right: 2rem;
@@ -186,10 +240,11 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
     .navigation__items--item {
       list-style: none;
       display: inline-block;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      color: #fff; }
       .navigation__items--item > a {
         text-decoration: none;
-        color: #000; }
+        color: #fff; }
 
 body {
   background-color: #f7f7f7; }

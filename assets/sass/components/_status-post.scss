@@ -1,0 +1,22 @@
+.status-post {
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__posted-by {
+    color: $color-grey-dark;
+    padding: 2rem;
+  }
+
+  &__profile-pic {
+    float: left;
+    margin-right: 1rem;
+    
+    & img {
+      border-radius: 500px;
+    }
+
+  }
+
+}
