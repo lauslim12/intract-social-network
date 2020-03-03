@@ -19,6 +19,7 @@ For now, the website has three features, more will be added as the project progr
 
 TODO:
 * Sanitize input with `htmlspecialchars` and `filter_var()` after `strip_tags()` in register and login handler.
+* Add prepared statements to the User class.
 * Google RECAPTCHA with Composer
 * Messaging System
 * IBM Cloud Native Applications (IBM Watson Assistant or IBM Natural Lang. Understanding)
