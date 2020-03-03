@@ -5,8 +5,15 @@ class User {
 
   public function __construct($db, $user) {
     $this->db = $db;
-    $user_details_query = mysqli_query($db, "SELECT * FROM users WHERE username = '$user'");
-    $this->user = mysqli_fetch_array($user_details_query);
+    
+    if($stmt = $this->db->prepare("SELECT * FROM users WHERE username = ?")) {
+      $stmt->bind_param("s", $user);
+      $stmt->execute();
+      $row = $stmt->get_result();
+      $this->user = $row->fetch_array();
+      $stmt->free_result();
+      $stmt->close();
+    }
   }
 
   public function get_username() {
@@ -18,10 +25,39 @@ class User {
     return $username;
   }
 
+  public function is_closed() {
+    $username = $this->get_username();
+
+    if($stmt = $this->db->prepare("SELECT user_closed FROM users WHERE username = ?")) {
+      $stmt->bind_param("s", $username);
+      $stmt->execute();
+      $row = $stmt->get_result();
+      $row = $row->fetch_array();
+      $stmt->free_result();
+      $stmt->close();
+    }
+
+    if($row['user_closed'] == 'yes') {
+      return true;
+    }
+    else {
+      return false;
+    }
+    
+  }
+
   public function get_num_posts() {
-    $username = $this->user['username'];
-    $query = mysqli_query($this->db, "SELECT num_posts FROM users WHERE username='$username'");
-    $row = mysqli_fetch_array($query);
+    $username = $this->get_username();
+
+    if($stmt = $this->db->prepare("SELECT num_posts FROM users WHERE username = ?")) {
+      $stmt->bind_param("s", $username);
+      $stmt->execute();
+      $row = $stmt->get_result();
+      $row = $row->fetch_array();
+      $stmt->free_result();
+      $stmt->close();
+    }
+
     return $row['num_posts'];
   }
 
