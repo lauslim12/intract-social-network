@@ -40,16 +40,17 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navigation">
+    <nav class="navbar navbar-expand-lg navigation u-margin-bottom-medium">
       <div class="navigation__logo">
         <a class="navigation__logo--link" href="index.php">Intract!</a>
       </div>
 
-      <ul class="navbar-nav ml-auto">
-        <li ckass="nav-item"><?php echo $user['first_name'] ?></li>
-        <li class="nav-item">Profile</li>
-        <li class="nav-item">Messages</li>
-        <li class="nav-item">Settings</li>
+      <ul class="navigation__items">
+        <li class="navigation__items--item">Hello, <?php echo $user['first_name'] ?>!</li>
+        <li class="navigation__items--item">Profile</li>
+        <li class="navigation__items--item">Messages</li>
+        <li class="navigation__items--item">Settings</li>
+        <li class="navigation__items--item"><a href="src/controllers/handlers/logout.php">Logout</a></li>
       </ul>
       
     </nav>
