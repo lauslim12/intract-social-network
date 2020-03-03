@@ -155,18 +155,44 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   width: 70%;
   padding: 1rem; }
 
+.user-details {
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 1.5rem;
+  width: 100%; }
+  .user-details__profile {
+    display: inline-block;
+    margin-left: 1rem; }
+  .user-details__wall {
+    float: right; }
+
 .navigation {
   background-color: #0080ff;
   width: 100%;
   min-height: 7vh;
   border-bottom: 1px solid #89c4ff;
-  display: inline-flex; }
+  display: inline-flex;
+  position: relative; }
   .navigation__logo {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem; }
     .navigation__logo--link {
       text-decoration: none;
       color: #000; }
+  .navigation__items {
+    float: right;
+    right: 2rem;
+    position: absolute; }
+    .navigation__items--item {
+      list-style: none;
+      display: inline-block;
+      font-size: 1.5rem; }
+      .navigation__items--item > a {
+        text-decoration: none;
+        color: #000; }
+
+body {
+  background-color: #f7f7f7; }
 
 .landing-body {
   background-image: linear-gradient(to right bottom, #89c4ff, #004589);

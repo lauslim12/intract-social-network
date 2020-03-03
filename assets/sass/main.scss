@@ -54,9 +54,11 @@ CSS Theories could be found on Jonas's Udemy Course (his slides and videos are e
 
 // 3. Components.
 @import 'components/input';
+@import 'components/user-details';
 
 // 4. Layout related sections.
 @import 'layout/navigation';
 
 // 5. Page-specific styles.
+@import 'pages/home';
 @import 'pages/landing';

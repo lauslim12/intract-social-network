@@ -1,0 +1,17 @@
+.user-details {
+  background-color: $color-white;
+  border-radius: 2px;
+  padding: 1.5rem;
+  width: 100%;
+  
+  &__profile {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  &__wall {
+    float: right;
+  }
+
+
+}

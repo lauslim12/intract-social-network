@@ -4,6 +4,7 @@
   min-height: 7vh;
   border-bottom: 1px solid $color-primary-light;
   display: inline-flex;
+  position: relative;
 
   &__logo {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -12,6 +13,24 @@
     &--link {
       text-decoration: none;
       color: $color-black;
+    }
+  }
+
+  &__items {
+    float: right;
+    right: 2rem;
+    position: absolute;
+
+    &--item {
+      list-style: none;
+      display: inline-block;
+      font-size: 1.5rem;
+
+      & > a {
+        text-decoration: none;
+        color: $color-black;
+      }
+
     }
 
   }
