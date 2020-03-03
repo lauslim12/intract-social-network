@@ -109,7 +109,7 @@
           </select><br>
           
           <input type="submit" name="register_button" value="Submit">
-          <?php if(in_array("<span>You're registered! Please login!</span><br>", $error_array)) echo "<span>You're registered! Please login!</span><br>"; ?>
+          <?php if(in_array("<span>You're registered! Please login!</span><br>", $error_array)) echo "<span><br>You're registered! Please login!</span><br>"; ?>
           <br>
           <a href="#" id="login">Already have an account? Click me to login!</a>
         </form> 
