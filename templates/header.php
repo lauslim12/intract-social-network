@@ -21,9 +21,13 @@
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
-    <title>Intract</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Intract &mdash; Your personalized social network</title>
+    
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
@@ -45,8 +49,11 @@
         <a class="navigation__logo--link" href="index.php">Intract!</a>
       </div>
 
+      <div class="navigation__center">
+        <p class="navigation__center--par">Hello, <?php echo $user['first_name'] ?>!</p>
+      </div>
+
       <ul class="navigation__items">
-        <li class="navigation__items--item">Hello, <?php echo $user['first_name'] ?>!</li>
         <li class="navigation__items--item">Profile</li>
         <li class="navigation__items--item">Messages</li>
         <li class="navigation__items--item">Settings</li>

@@ -5,9 +5,12 @@
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
-    <title>Welcome to Intract!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Intract &mdash; Your personalized social network</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
