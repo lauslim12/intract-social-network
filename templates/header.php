@@ -4,6 +4,16 @@
   if(isset($_SESSION['username'], $_SESSION['logged_in'])) {
     $user_logged_in = $_SESSION['username'];
     $authentication = $_SESSION['logged_in'];
+    
+    $sql = "SELECT * FROM users WHERE username = ? LIMIT 1";
+    if($stmt = $db->prepare($sql)) {
+      $stmt->bind_param("s", $user_logged_in);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $user = $result->fetch_array();
+      $stmt->free_result();
+      $stmt->close();
+    }
   }
   else {
     header("location: landing.php");
@@ -36,6 +46,7 @@
       </div>
 
       <ul class="navbar-nav ml-auto">
+        <li ckass="nav-item"><?php echo $user['first_name'] ?></li>
         <li class="nav-item">Profile</li>
         <li class="nav-item">Messages</li>
         <li class="nav-item">Settings</li>
