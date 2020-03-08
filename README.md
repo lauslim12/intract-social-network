@@ -6,16 +6,32 @@ Jobdesc:
 - Sign Up System -> Nicholas Dwiarto, Sebastian
 - Login System -> Nicholas Dwiarto, Sinzie Winata
 - Profile System (Ganti DP, Display Information) -> Nicholas Dwiarto, Attar Kusuma Pratiwa (Ganti DP OTW Progress)
+- Profile System (Posts, Comments, Search) -> Nicholas Dwiarto
 - Infinite Scrolling -> Nicholas Dwiarto
-- User Interface -> Nicholas Dwiarto
+- User Interface -> Nicholas Dwiarto (SCSS), Attar Kusuma Pratiwa (Assets), Sebastian (Assets), Sinzie Winata (Assets)
 
-Don't forget to remove those lines after the midterm assignment is graded.
+Catatan Soal:
+- Modul Signup
+-- Label A sampai G done.
+
+- Modul Login
+-- Label A sampai E done. Coba lihat lagi apakah label G (SQL Injection) masih bisa?
+
+- Modul Profile
+-- Label A (display user data) done.
+-- Label B (change DP belum)
+-- Label C (kurang post gambar)
+-- Label D (comments) done.
+-- Label E (Search OTW)
+
+Don't forget to remove those lines after the midterm assignment is graded. This project is to be open sourced at Nicholas Dwiarto's GitHub.
 
 ## Architecture / Philosophies
 * Object Oriented.
 * IBM Programming Style and Techniques.
 * HTML, SCSS, JavaScript, Node.js for the Front-End.
 * Native PHP, MariaDB, IBM Cloud Services for the Back-End.
+* Block, Element, Modifier SCSS Methodology for Styling.
 * Usage of Agile Process Model.
 * Security Software Design and Development Process.
 * Hosted on a Cloud Provider (Microsoft Azure).
@@ -53,6 +69,7 @@ The project structure will follow the Model (Classes), View, Controller style wi
 * Use `git pull repo` to fetch the code, or download it by using `git clone`.
 * Copy the repository into the `.htdocs` folder in XAMPP or any other local host web server that you have.
 * Import the `.sql` file.
+* Register an account to be used at the website.
 * Done.
 
 For Developers,
