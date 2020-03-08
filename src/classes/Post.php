@@ -98,7 +98,25 @@ class Post {
         $first_name = $user_row['first_name'];
         $last_name = $user_row['last_name'];
         $profile_pic = $user_row['profile_pic'];
+        ?>
 
+        <script>
+          // Small function.
+          function toggle<?php echo $id; ?>() {
+            let element = document.getElementById("toggle_comment<?php echo $id; ?>");
+
+            if(element.style.display == "block") {
+              element.style.display = "none";
+            }
+            else {
+              element.style.display = "block";
+            }
+          }
+
+        
+        </script>
+
+        <?php
         // Fetch time.
         $date_time_now = date("Y-m-d H:i:s");
 
@@ -168,8 +186,9 @@ class Post {
         }
 
         // Concat the strings if more comes up with the loop.
+        // Because the function is run in index.php, the path is displayed as is.
         $str .= 
-          "<div class='status-post'>
+          "<div class='status-post' onClick='javscript:toggle$id()'>
             <div class='status-post__profile-pic'>
               <img src='$profile_pic' width='50'>
             </div>
@@ -183,6 +202,11 @@ class Post {
             </div>
 
           </div>
+
+          <div class='post_comment' id='toggle_comment$id' style='display: none;'>
+            <iframe src='comment_frame.php?post_id=$id' id='comment_iframe'></iframe>
+          </div>
+
           <hr>
           ";
       }

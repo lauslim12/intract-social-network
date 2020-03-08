@@ -46,6 +46,21 @@ class User {
     
   }
 
+  public function get_profile_picture() {
+    $username = $this->get_username();
+
+    if($stmt = $this->db->prepare("SELECT profile_pic FROM users WHERE username = ?")) {
+      $stmt->bind_param("s", $username);
+      $stmt->execute();
+      $row = $stmt->get_result();
+      $row = $row->fetch_array();
+      $stmt->free_result();
+      $stmt->close();
+    }
+
+    return $row['profile_pic'];
+  }
+
   public function get_num_posts() {
     $username = $this->get_username();
 
