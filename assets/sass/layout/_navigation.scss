@@ -7,12 +7,7 @@
   position: relative;
 
   &__center {
-    margin: 0 auto;
-
-    &--par {
-      font-size: $default-font-size;
-      color: $color-white;
-    }
+    @include centerElement;
   }
 
   &__logo {
@@ -29,15 +24,17 @@
     float: right;
     right: 2rem;
     position: absolute;
+    font-size: $font-size-medium;
 
     &--item {
       list-style: none;
       display: inline-block;
-      font-size: 1.5rem;
+      font-size: inherit;
       color: $color-white;
 
       & > a {
         text-decoration: none;
+        font-size: inherit;
         color: $color-white;
       }
 

@@ -12,11 +12,20 @@ $color-tertiary-dark: #5643fa;
 // Body Color Theme
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
+$color-grey-light-3: #f0eeee;
+$color-grey-light-4: #ccc;
+
 $color-grey-dark: #777;
 $color-grey-dark-2: #999;
 $color-grey-dark-3: #333;
+
 $color-white: #fff;
 $color-black: #000;
+
+// Shadows
+$shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .5);
+$shadow-light: 0 2rem 5rem rgba(0, 0, 0, .1);
+$line: 1px solid $color-grey-light-2;
 
 // Font Sizes
 $default-font-size: 1.6rem;

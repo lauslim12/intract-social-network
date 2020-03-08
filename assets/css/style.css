@@ -164,6 +164,36 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   width: 70%;
   padding: 1rem; }
 
+.search__button-holder {
+  display: inline-block;
+  background-color: #f7f7f7;
+  border: thin solid #eee;
+  cursor: pointer;
+  height: 2.2rem;
+  text-align: center;
+  width: 3rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  margin-top: .5rem;
+  position: relative; }
+  .search__button-holder img {
+    width: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.search__results {
+  border: 1px solid #eee;
+  float: left;
+  height: .25rem;
+  outline: 0;
+  width: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+  .search__results--footer_empty {
+    display: none; }
+
 .status-post:not(:last-child) {
   margin-bottom: 1rem; }
 
@@ -223,10 +253,10 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   display: inline-flex;
   position: relative; }
   .navigation__center {
-    margin: 0 auto; }
-    .navigation__center--par {
-      font-size: 1.6rem;
-      color: #fff; }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
   .navigation__logo {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem; }
@@ -236,14 +266,16 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   .navigation__items {
     float: right;
     right: 2rem;
-    position: absolute; }
+    position: absolute;
+    font-size: 1.4rem; }
     .navigation__items--item {
       list-style: none;
       display: inline-block;
-      font-size: 1.5rem;
+      font-size: inherit;
       color: #fff; }
       .navigation__items--item > a {
         text-decoration: none;
+        font-size: inherit;
         color: #fff; }
 
 body {
