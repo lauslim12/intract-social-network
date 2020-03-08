@@ -2,6 +2,13 @@
   if(isset($_POST['login_button'])) {
     $username = $_POST['login_username'];
     $password = $_POST['login_password'];
+    $captcha_system = $_POST['login_captcha_system'];
+    $captcha_user = $_POST['login_captcha_user'];
+
+    // First, check the captcha.
+    if($captcha_user != $captcha_system) {
+      array_push($error_array, "Invalid captcha!<br>");
+    }
     
     // People is able to login simply with username or email address.
     if($stmt = $db->prepare("SELECT password FROM users WHERE username = ? OR email = ? LIMIT 1")) {

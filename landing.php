@@ -55,6 +55,26 @@
               echo "Wrong password!<br>";
             }
           ?>
+          <input type="text" name="login_captcha_system" value=
+          <?php
+            $charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            $random_str = "";
+
+            for($i = 0; $i < 5; $i++) {
+              $index = rand(0, strlen($charset) - 1);
+              $random_str .= $charset[$index];
+            }
+
+            echo $random_str;
+          ?> readonly><br>
+
+          <input type="text" name="login_captcha_user" placeholder="Please type the text above" /><br>
+          <?php
+            if(in_array("Invalid captcha!<br>", $error_array)) {
+              echo "Invalid captcha!<br>";
+            }
+          ?>
+
           <input type="submit" name="login_button" value="Submit">
           <br>
           <a href="#" id="register">Do not have an account yet? Sign up by clicking me!</a>
