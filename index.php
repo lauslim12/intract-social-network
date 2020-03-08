@@ -12,7 +12,6 @@
 ?>
   
   <div class="user-details">
-  
     <div class="user-details__profile">
       <img src=<?php echo $user['profile_pic'] ?> alt="Profile Picture">
       <a href=<?php echo $user_logged_in ?>><?php echo $user['first_name'] . " " . $user['last_name'] ?></a>
@@ -35,60 +34,8 @@
 
     </div>
 
-    <script>
-      let user_logged_in = '<?php echo $user_logged_in ?>';
-
-      $(document).ready(function() {
-        $('.user-details--loading').show();
-
-        // AJAX request for calling posts.
-        $.ajax({
-          url: 'src/controllers/handlers/ajax_php_load_posts.php',
-          type: 'POST',
-          data: 'page=1&user_logged_in=' + user_logged_in,
-          cache: false,
-
-          success: function(data) {
-            $('.user-details--loading').hide();
-            $('.user-details__posts-area').html(data);
-          }
-
-        });
-
-        $(window).scroll(function() {
-          // Container height containing the posts.
-          let height = $('.user-details__posts-area').height();
-          let scroll_top = $(this).scrollTop();
-          let page = $('.user-details__posts-area').find('.user-details__posts-area__next-post').val();
-          let final_post = $('.user-details__posts-area').find('.user-details__posts-area__final-post').val();
-
-          if(($(window).scrollTop() + $(window).height() > $(document).height() - 25) && final_post == 'false') {
-            $('.user-details--loading').show();
-
-            let ajax_request = $.ajax({
-              url: 'src/controllers/handlers/ajax_php_load_posts.php',
-              type: "POST",
-              data: "page=" + page + "&user_logged_in=" + user_logged_in,
-              cache: false,
-
-              success: function(response) {
-                $('.user-details__posts-area').find('.user-details__posts-area__next-post').remove();
-                $('.user-details__posts-area').find('.user-details__posts-area__final-post').remove();
-
-                $('.user-details--loading').hide();
-                $('.user-details__posts-area').append(response);
-              }
-
-            });
-          } // End if.
-          else {
-            return false;
-          }
-        }); // End of window scroll function.
-
-      });
-
-    </script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/ajax_js_load_posts.js"></script>
 
   </div>
   
