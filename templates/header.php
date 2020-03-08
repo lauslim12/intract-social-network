@@ -49,11 +49,28 @@
         <a class="navigation__logo--link" href="index.php">Intract!</a>
       </div>
 
-      <div class="navigation__center">
-        <p class="navigation__center--par">Hello, <?php echo $user['first_name'] ?>!</p>
+      <div class="navigation__center search">
+        <form action="search.php" method="GET" class="search_form">
+          <input class="search__results" type="text" onkeyup="get_live_search_users(this.value, '<?php echo $user_logged_in; ?>')" name="q" placeholder="Search users..." autocomplete="off" id="search_text_input">
+          
+          <div class="search__button-holder">
+            <img src="assets/images/icons/search.png" alt="Search" />
+          </div>
+
+          <!-- Style later. -->
+          <div class="search__results__leftblank">
+          
+          </div>
+
+          <div class="search__results--footer-empty">
+          
+          </div>
+
+        </form>
       </div>
 
       <ul class="navigation__items">
+        <p class="navigation__items--item">Hello, <?php echo $user['first_name'] ?>!</p>
         <li class="navigation__items--item">Profile</li>
         <li class="navigation__items--item">Messages</li>
         <li class="navigation__items--item">Settings</li>
