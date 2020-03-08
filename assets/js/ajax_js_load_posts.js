@@ -1,3 +1,4 @@
+// AJAX loader.
 let user_logged_in = '<?php echo $user_logged_in ?>';
 
 $(document).ready(function() {
