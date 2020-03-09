@@ -49,16 +49,16 @@
         <a class="navigation__logo--link" href="index.php">Intract!</a>
       </div>
 
-      <div class="navigation__center search">
+      <div class="navigation__center">
         <form action="search.php" method="GET" class="search_form">
-          <input class="search__results" type="text" onkeyup="get_live_search_users(this.value, '<?php echo $user_logged_in; ?>')" name="q" placeholder="Search users..." autocomplete="off" id="search_text_input">
+          <input class="search__results--button" type="text" onkeyup="get_live_search_users(this.value, '<?php echo $user_logged_in; ?>')" name="q" placeholder="Search users..." autocomplete="off" id="search_text_input">
           
           <div class="search__button-holder">
             <img src="assets/images/icons/search.png" alt="Search" />
           </div>
 
           <!-- Style later. -->
-          <div class="search__results__leftblank">
+          <div class="search__results">
           
           </div>
 
