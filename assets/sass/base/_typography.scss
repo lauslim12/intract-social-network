@@ -1,12 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:200,300,400,500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap');
-// Remove later when you remove Bootstrap!
-p {
-  margin-bottom: 0;
-  font-size: $font-size-small;
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
 }
 
-a {
-  text-decoration: none;
-  font-size: $font-size-small;
+.legal {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2.5rem;
+  color: var(--color-grey-light-4);
+
+  @include respond(medium) {
+    display: none;
+  }
 }
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+

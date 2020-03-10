@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+
 .landing-body {
-  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -10,22 +12,31 @@
 
 .form-view {
   text-align: center;
-  background-color: $color-white;
+  background-color: var(--color-grey-dark-1);
   width: 50%;
   border-radius: 2.5px;
   overflow: hidden;
 
-  box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+  box-shadow: var(--shadow-dark);
 
   @include centerElement;
 
   &__header {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     font-family: 'IBM Plex Sans', sans-serif;
-    color: $color-white;
+    color: var(--color-white);
     font-size: 1.5rem;
     padding-bottom: .5rem;
     margin-bottom: .5rem;
+
+    & p {
+      color: var(--color-white);
+    }
+
+    & h2 {
+      color: var(--color-white);
+    }
+
   }
 
   &__register {
@@ -35,7 +46,7 @@
   &__login a,
   &__register a {
     line-height: 5rem;
-    color: $color-black;
+    color: var(--color-white);
     text-decoration: none;
   }
 

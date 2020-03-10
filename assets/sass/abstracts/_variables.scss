@@ -1,40 +1,25 @@
-// Main Color Theme
-$color-primary: 	#0080ff;
-$color-primary-light: #89c4ff;
-$color-primary-dark: 	#004589;
+// Native CSS Variables
+:root {
+  --color-primary:        #0080ff;
+  --color-primary-light:  #89c4ff;
+  --color-primary-dark:   #004589;
+  
+  --color-secondary-light: #ffb900;
+  --color-secondary-dark: #ff7730;
 
-$color-secondary-light: #ffb900;
-$color-secondary-dark: #ff7730;
+  --color-grey-light-1:   #faf9f9;
+  --color-grey-light-2:   #f4f2f2;
+  --color-grey-light-3:   #f0eeee;
+  --color-grey-light-4:   #ccc;
 
-$color-tertiary-light: #2998ff;
-$color-tertiary-dark: #5643fa;
+  --color-grey-dark-1:    #333;
+  --color-grey-dark-2:    #777;
+  --color-grey-dark-3:    #999;
 
-// Body Color Theme
-$color-grey-light-1: #f7f7f7;
-$color-grey-light-2: #eee;
-$color-grey-light-3: #f0eeee;
-$color-grey-light-4: #ccc;
+  --color-white: #fff;
+  --color-black: #000;
 
-$color-grey-dark: #777;
-$color-grey-dark-2: #999;
-$color-grey-dark-3: #333;
-
-$color-white: #fff;
-$color-black: #000;
-
-// Shadows
-$shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .5);
-$shadow-light: 0 2rem 5rem rgba(0, 0, 0, .1);
-$line: 1px solid $color-grey-light-2;
-
-// Font Sizes
-$default-font-size: 1.6rem;
-$font-size-small: 1.2rem;
-$font-size-medium: 1.4rem;
-
-// Variables for the Grid System.
-$grid-width: 114rem;
-$grid-width-small: 50rem;
-$gutter-vertical: 8rem;
-$gutter-vertical-small: 6rem;
-$gutter-horizontal: 6rem;
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .5);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, .1);
+  --line: 1px solid var(--color-grey-light-2);
+}
