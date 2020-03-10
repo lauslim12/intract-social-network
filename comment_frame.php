@@ -1,3 +1,27 @@
+<?php
+  require 'config/config.php';
+  include 'src/classes/User.php';
+  include 'src/classes/Post.php';
+
+  if(isset($_SESSION['username'], $_SESSION['logged_in'])) {
+    $user_logged_in = $_SESSION['username'];
+    $authentication = $_SESSION['logged_in'];
+        
+    $sql = "SELECT * FROM users WHERE username = ? LIMIT 1";
+    if($stmt = $db->prepare($sql)) {
+      $stmt->bind_param("s", $user_logged_in);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $user = $result->fetch_array();
+      $stmt->free_result();
+      $stmt->close();    
+    }
+  }
+  else {
+    header("location: landing.php");
+  }
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -5,44 +29,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-          crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-        crossorigin="anonymous"></script>
-
   </head>
-  <body>
-    <?php
-      require 'config/config.php';
-      include 'src/classes/User.php';
-      include 'src/classes/Post.php';
+  <body class="comment-section">
 
-      if(isset($_SESSION['username'], $_SESSION['logged_in'])) {
-        $user_logged_in = $_SESSION['username'];
-        $authentication = $_SESSION['logged_in'];
-        
-        $sql = "SELECT * FROM users WHERE username = ? LIMIT 1";
-        if($stmt = $db->prepare($sql)) {
-          $stmt->bind_param("s", $user_logged_in);
-          $stmt->execute();
-          $result = $stmt->get_result();
-          $user = $result->fetch_array();
-          $stmt->free_result();
-          $stmt->close();
-        }
-      }
-      else {
-        header("location: landing.php");
-      }
-    ?>
 
     <script>
       function toggle() {
@@ -72,15 +63,15 @@
         $post_body = mysqli_escape_string($db, $post_body);
         $date_time_now = date("Y-m-d H:i:s");
         $insert_post = mysqli_query($db, "INSERT INTO post_comments VALUES('', '$post_body', '$user_logged_in', '$posted_to', '$date_time_now', 'no', '$post_id')");
-        echo "<p>Comment has been posted!</p>";
+        echo "<p><center>Comment has been posted!</p></center>";
       }
 
 
     ?>
 
     <form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="post_comment<?php echo $post_id; ?>" method="POST">
-      <textarea name="post_body" cols="50" rows="5" placeholder="Write your comment..."></textarea>
-      <input type="submit" name="post_comment<?php echo $post_id; ?>" value="Post">
+      <textarea name="post_body" rows="2" class="comment-section__placeholder" placeholder="Write your comment..."></textarea>
+      <input type="submit" name="post_comment<?php echo $post_id; ?>" value="Post" class="btn-inline">
     </form>
 
     <!-- Loading comments -->
@@ -170,7 +161,7 @@
           // Break the PHP tags and continue with comment section by every iteration.
     ?>
 
-          <div class="comment-section">
+          <div class="comment-section__holder">
             <a href="<?php echo $posted_by; ?>" target="_parent"><img src="<?php echo $user_object->get_profile_picture(); ?>" alt="Profile Picture" title="<?php echo $posted_by; ?>" style="float: left; margin-right: 2rem;" height="30"></a>
             <a href="<?php echo $posted_by; ?>" target="_parent"><b><?php echo $user_object->get_full_name(); ?></b></a>
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $time_message . "<br>" . $comment_body; ?>
@@ -181,6 +172,9 @@
 
         }
         
+      }
+      else {
+        echo "<center><br>No Comments to Show!</center>";
       }
       
     ?>
