@@ -12,10 +12,13 @@
     
     <title>Intract &mdash; Your personalized social network</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/icons/favicon.png">
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script src="assets/js/landing.js"></script>
+    
   </head>
 
   <body class="landing-body">
@@ -36,14 +39,14 @@
     <main class="form-view">
       
       <div class="form-view__header">
-        <h2>Intract</h2>
+        <h2>Intract and Bordeaux Hotel</h2>
         <p>Sign up or login here!</p>
       </div>
 
       <!-- Action left empty to prevent XSS. -->
       <div class="form-view__login u-margin-bottom-small">
-        <form action='' method="POST">
-          <input type="text" name="login_username" placeholder="Username or Email Address" /><br>
+        <form action='' method="POST" class="form-view__form">
+          <input type="text" name="login_username" placeholder="Username" /><br>
           <?php
             if(in_array("Wrong username!<br>", $error_array)) {
               echo "Wrong username!<br>";
@@ -66,7 +69,7 @@
             }
 
             echo $random_str;
-          ?> readonly><br>
+          ?> class="form-view__login--captcha" readonly><br>
 
           <input type="text" name="login_captcha_user" placeholder="Please type the text above" /><br>
           <?php
@@ -75,14 +78,14 @@
             }
           ?>
 
-          <input type="submit" name="login_button" value="Submit">
+          <input type="submit" name="login_button" value="Submit" class="btn-inline">
           <br>
           <a href="#" id="register">Do not have an account yet? Sign up by clicking me!</a>
         </form>
       </div>
 
       <div class="form-view__register u-margin-bottom-small">
-        <form action='' method="POST">
+        <form action='' method="POST" class="form-view__form">
           <input type="text" name="fname" placeholder="First Name" value="<?php
             if(isset($_SESSION['fname'])) {
               echo $_SESSION['fname'];
@@ -98,7 +101,14 @@
           <?php if(in_array("Your last name has to be between 2 to 25 characters!<br>", $error_array)) echo "Your last name has to be between 2 to 25 characters!<br>"; ?>
 
           <input type="text" name="username" placeholder="Username" required /><br>
-          <?php if(in_array("Username is already in use!", $error_array)) echo "Username is already in use!<br>"; ?>
+          <?php 
+            if(in_array("Username is already in use!", $error_array)) {
+              echo "Username is already in use!<br>"; 
+            }
+            else if(in_array("Username cannot contain spaces!<br>", $error_array)) {
+              echo "Username cannot contain spaces!<br>";
+            }
+          ?>
 
           <input type="email" name="email" placeholder="Email" value="<?php
             if(isset($_SESSION['email'])) {
@@ -131,7 +141,7 @@
             <option value="F">Female</option>
           </select><br>
           
-          <input type="submit" name="register_button" value="Submit">
+          <input type="submit" name="register_button" value="Submit" class="btn-inline">
           <?php if(in_array("<span>You're registered! Please login!</span><br>", $error_array)) echo "<span><br>You're registered! Please login!</span><br>"; ?>
           <br>
           <a href="#" id="login">Already have an account? Click me to login!</a>
