@@ -1,5 +1,5 @@
 # Intract Social Networking Site
-Intract social networking site, built with PHP, MariaDB, JavaScript.
+Intract social networking site, built with PHP, MariaDB, JavaScript. The theme is a social network for the reviews of Bordeaux Hotel of France.
 
 ## Catatan Khusus Kuliah
 Jobdesc:
@@ -18,11 +18,7 @@ Catatan Soal:
 -- Label A sampai E done. Coba lihat lagi apakah label G (SQL Injection) masih bisa?
 
 - Modul Profile
--- Label A (display user data) done.
--- Label B (change DP belum)
--- Label C (kurang post gambar)
--- Label D (comments) done.
--- Label E (Search OTW)
+-- Label A sampai E done. Coba lihat lagi apakah label C (Post with Picture) sudah dikerjakan?
 
 Don't forget to remove those lines after the midterm assignment is graded. This project is to be open sourced at Nicholas Dwiarto's GitHub.
 
