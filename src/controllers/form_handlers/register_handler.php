@@ -22,8 +22,11 @@
     $_SESSION['lname'] = $lname;
 
     $username = strip_tags($_POST['username']);
-    $username = str_replace(' ', '', $username);
     $username = strtolower($username);
+    
+    if(preg_match('/\s/', $username)) {
+      array_push($error_array, "Username cannot contain spaces!<br>");
+    }
 
     $email = strip_tags($_POST['email']);
     $email = str_replace(' ', '', $email);

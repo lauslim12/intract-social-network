@@ -10,9 +10,9 @@
       array_push($error_array, "Invalid captcha!<br>");
     }
     
-    // People is able to login simply with username or email address.
-    if($stmt = $db->prepare("SELECT password FROM users WHERE username = ? OR email = ? LIMIT 1")) {
-      $stmt->bind_param("ss", $username, $username);
+    // People is able to login simply with username or email address. (currently disabled for the email)
+    if($stmt = $db->prepare("SELECT password FROM users WHERE username = ? LIMIT 1")) {
+      $stmt->bind_param("s", $username);
       $stmt->execute();
       $stmt->store_result();
       $num_of_cols = $stmt->num_rows();
