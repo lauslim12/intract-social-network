@@ -103,20 +103,25 @@ class Post {
         <script>
           // Small function.
           function toggle<?php echo $id; ?>() {
-            let element = document.getElementById("toggle_comment<?php echo $id; ?>");
+            let target = $(event.target);
 
-            if(element.style.display == "block") {
-              element.style.display = "none";
+            if(!target.is("a")) {
+              let element = document.getElementById("toggle_comment<?php echo $id; ?>");
+              if(element.style.display == "block") {
+                element.style.display = "none";
+              }
+              else {
+                element.style.display = "block";
+              }
             }
-            else {
-              element.style.display = "block";
-            }
+            
           }
-
-        
         </script>
 
         <?php
+        $comments_check = mysqli_query($this->db, "SELECT * FROM post_comments WHERE post_id = '$id'");
+        $comments_number = mysqli_num_rows($comments_check);
+
         // Fetch time.
         $date_time_now = date("Y-m-d H:i:s");
 
@@ -188,19 +193,23 @@ class Post {
         // Concat the strings if more comes up with the loop.
         // Because the function is run in index.php, the path is displayed as is.
         $str .= 
-          "<div class='status-post' onClick='javscript:toggle$id()'>
+          "<div class='status-post'>
             <div class='status-post__profile-pic'>
               <img src='$profile_pic' width='50'>
             </div>
 
             <div class='status-post__posted-by'>
-              <a href='$added_by'>$first_name $last_name</a> $user_to &nbsp;&nbsp;&nbsp;&nbsp; $time_message
+              <a href='$added_by'>$first_name $last_name</a> $user_to
+              <p class='paragraph'>$time_message</p>
             </div>
+          </div>
 
-            <div class='status-post__body'>
-              <p>$body</p>
-            </div>
+          <div class='status-post__body'>
+            <p class='paragraph'>$body</p>
+          </div>
 
+          <div class='status-post__comments' >
+            <p onClick='javscript:toggle$id()'>Comments($comments_number)</p>
           </div>
 
           <div class='post_comment' id='toggle_comment$id' style='display: none;'>
@@ -214,15 +223,15 @@ class Post {
       if($count > $limit) {
         $str .= 
           "
-            <input type='hidden' class='user-details__posts-area__next-post' value='" . ($page + 1) . "'>
-              <input type='hidden' class='user-details__posts-area__final-post' value='false'>
+            <input type='hidden' class='posts-area__next-post' value='" . ($page + 1) . "'>
+              <input type='hidden' class='posts-area__final-post' value='false'>
           ";
       }
       else {
         $str .= 
           "
-            <input type='hidden' class='user-details__posts-area__final-post' value='true'>
-              <p style='text-align: center;'>No more posts!</p>
+            <input type='hidden' class='posts-area__final-post' value='true'>
+              <p class='paragraph'>No more posts!</p>
           ";
       }
 
