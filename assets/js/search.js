@@ -3,6 +3,9 @@ $(document).ready(function() {
     $('.search_form').submit();
   });
 
+  $('.side-nav__link--results').click(function() {
+    alert("Please search in the search box before accessing this page!");
+  });
 
 });
 
