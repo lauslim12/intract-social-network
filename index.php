@@ -63,32 +63,9 @@
             </header>
 
             <div class="content">
-                <nav class="sidebar">
-                    <ul class="side-nav">
-                        <li class="side-nav__item side-nav__item--active">
-                            <a href="#" class="side-nav__link">
-                                <svg class="side-nav__icon">
-                                    <use xlink:href="assets/images/svg/sprite.svg#icon-home"></use> 
-                                </svg>
-                                <span>Hotel</span>
-                            </a>
-                        </li>
-
-                        <li class="side-nav__item side-nav__item">
-                            <a href="<?php echo $user_logged_in; ?>" class="side-nav__link">
-                                <svg class="side-nav__icon">
-                                    <use xlink:href="assets/images/svg/sprite.svg#icon-aircraft-take-off"></use> 
-                                </svg>
-                                <span>Profile</span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <div class="legal">
-                        &copy; 2020 by Intract and Bordeaux. All Rights Reserved.
-                    </div>
-                </nav>
+                <?php
+                    include 'templates/sidebar.php';
+                ?>
 
                 <main class="hotel-view">
                     <div class="gallery">
@@ -208,7 +185,7 @@
                     </div>
 
                     <div class="detail">
-                        <div class="description">
+                        <div class="description--posts">
                             <h2>REVIEWS</h2>
                             <form action='' method="POST">
                                 <textarea name="post_text" id="post_text" rows="5" placeholder="A penny for your thoughts?"></textarea>
@@ -222,49 +199,12 @@
                             <img class="posts-area--loading" src="assets/images/icons/loading.gif" alt="Loading Icon">
                     
                         </div>
-
-                        <div class="user-reviews">
-                            <figure class="review">
-                                <blockquote class="review__text">
-                                    During a trip to France this summer, I spent my last night at the InterContinental Bordeaux Le Grand Hôtel. 
-                                    I’d actually stayed there several years before when it was part of Regent Hotels, but was eager to stay again now that it’s part of IHG.
-                                </blockquote>   
-                                <figcaption class="review__user">
-                                    <img src="assets/images/photos/user-1.jpg" alt="Photo of reviewer 1" class="review__photo">
-                                    <div class="review__user-box">
-                                        <p class="review__user-name">Nicholas Dwiarto</p>
-                                        <p class="review__user-date">Dec 31st, 2019</p>
-                                    </div>
-                                    <div class="review__rating">4.5</div>
-                                </figcaption>
-                            </figure>
-
-                            <figure class="review">
-                                <blockquote class="review__text">
-                                    Our view overlooked one of the hotel’s central courtyards, which was nice and quiet, and the windows actually opened, so we could enjoy some fresh air.
-                                </blockquote>   
-                                <figcaption class="review__user">
-                                    <img src="assets/images/photos/user-2.jpg" alt="Photo of reviewer 2" class="review__photo">
-                                    <div class="review__user-box">
-                                        <p class="review__user-name">Marie Julis-Alexia</p>
-                                        <p class="review__user-date">Jan 1st, 2020</p>
-                                    </div>
-                                    <div class="review__rating">4.75</div>
-                                </figcaption>
-                            </figure>
-                            <button class="btn-inline">Show all <span>&rarr;</span></button>
-                        </div>
+                        
                     </div>
 
-                    <div class="cta">
-                        <h2 class="cta__book-now">
-                            Good news! We have 2 free rooms for your selected dates!
-                        </h2>
-                        <button class="btn">
-                            <span class="btn__visible">Book now!</span>
-                            <span class="btn__invisible">Only 2 rooms left!</span>
-                        </button>
-                    </div>
+                    <?php
+                        include 'templates/footer.php';
+                    ?>
                 </main>
 
             </div>
