@@ -16,7 +16,16 @@ body {
   }
 }
 
-.paragraph:not(:last-of-type) {
-  margin-bottom: 2rem;
+.paragraph {
+
+  &--center {
+    text-align: center;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
 }
+
+
 
