@@ -26,14 +26,23 @@
   padding: 3rem;
   margin-right: 4.5rem;
 
-  & h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
+  &--posts {
+    flex: 0 0 100%;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-right: 4.5rem;
 
-  & textarea {
-    text-align: center;
-    width: 100%;
+    & h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  
+    & textarea {
+      text-align: center;
+      width: 100%;
+    }
+
   }
 
   @include respond(medium) {
