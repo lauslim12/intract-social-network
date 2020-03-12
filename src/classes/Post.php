@@ -231,7 +231,7 @@ class Post {
         $str .= 
           "
             <input type='hidden' class='posts-area__final-post' value='true'>
-              <p class='paragraph'>No more posts!</p>
+              <p class='paragraph--center'>No more posts!</p>
           ";
       }
 
