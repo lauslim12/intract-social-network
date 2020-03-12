@@ -87,6 +87,9 @@ body {
     .legal {
       display: none; } }
 
+.paragraph--center {
+  text-align: center; }
+
 .paragraph:not(:last-of-type) {
   margin-bottom: 2rem; }
 
@@ -573,7 +576,16 @@ body {
       margin-bottom: 1rem; }
     .description--posts textarea {
       text-align: center;
-      width: 100%; }
+      width: 100%;
+      font-family: 'Open-Sans', sans-serif; }
+    @media only screen and (max-width: 56.25em) {
+      .description--posts {
+        padding: 2rem;
+        margin-right: 3rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .description--posts {
+        margin-right: 0;
+        margin-bottom: 3rem; } }
   @media only screen and (max-width: 56.25em) {
     .description {
       padding: 2rem;
