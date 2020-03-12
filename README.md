@@ -15,7 +15,7 @@ Catatan Soal:
 -- Label A sampai G done.
 
 - Modul Login
--- Label A sampai E done. Coba lihat lagi apakah label G (SQL Injection) masih bisa?
+-- Label A sampai E done.
 
 - Modul Profile
 -- Label A sampai E done. Coba lihat lagi apakah label C (Post with Picture) sudah dikerjakan?
@@ -41,10 +41,10 @@ For now, the website has three features, more will be added as the project progr
 * Wall System (Complete with infinite scrolling!)
 
 TODO:
+* Move all the files into `src/views` directory and `public_html` directory.
 * Sanitize input with `htmlspecialchars` and `filter_var()` after `strip_tags()` in register and login handler.
 * Add prepared statements to the User and Post class, also change to OOP!
 * Tidy up the SQL and the bound parameters.
-* Google RECAPTCHA with Composer
 * Messaging System
 * IBM Cloud Native Applications (IBM Watson Assistant or IBM Natural Lang. Understanding)
 * User Interface
