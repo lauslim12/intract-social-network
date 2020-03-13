@@ -6,13 +6,13 @@
     $captcha_user = $_POST['login_captcha_user'];
 
     // First, check the captcha.
-    if($captcha_user != $captcha_system) {
+    if(strcmp($captcha_system, $captcha_user) != 0) {
       array_push($error_array, "Invalid captcha!<br>");
     }
     
-    // People is able to login simply with username or email address. (currently disabled for the email)
-    if($stmt = $db->prepare("SELECT password FROM users WHERE username = ? LIMIT 1")) {
-      $stmt->bind_param("s", $username);
+    // People is able to login simply with username or email address.
+    if($stmt = $db->prepare("SELECT password FROM users WHERE username = ? OR email = ? LIMIT 1")) {
+      $stmt->bind_param("ss", $username, $username);
       $stmt->execute();
       $stmt->store_result();
       $num_of_cols = $stmt->num_rows();
@@ -37,11 +37,24 @@
       $stmt->execute();
       $stmt->free_result();
       $stmt->close();
-      $db->close();
+    }
+
+    // If the user entered an email address, make session variable to be username.
+    if(filter_var($username, FILTER_VALIDATE_EMAIL)) {
+      if($stmt = $db->prepare("SELECT username FROM users WHERE email = ?")) {
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->bind_result($col);
+        $stmt->fetch();
+        $username = $col;
+        $stmt->free_result();
+        $stmt->close();
+        $db->close();
+      }
     }
 
     // BCRPYT Hash.
-    if(password_verify($password, $hash)) {
+    if(password_verify($password, $hash) && empty($error_array)) {
       $_SESSION['username'] = $username;
       $_SESSION['logged_in'] = TRUE;
       header("location:index.php");
