@@ -26,7 +26,8 @@
   padding: 3rem;
   margin-right: 4.5rem;
 
-  &--posts {
+  &--posts,
+  &--profile {
     flex: 0 0 100%;
     background-color: var(--color-white);
     box-shadow: var(--shadow-light);
