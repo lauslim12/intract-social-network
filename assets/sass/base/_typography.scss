@@ -17,6 +17,9 @@ body {
 }
 
 .paragraph {
+  &--bold {
+    font-weight: 600;
+  }
 
   &--center {
     text-align: center;
@@ -25,6 +28,11 @@ body {
   &:not(:last-of-type) {
     margin-bottom: 2rem;
   }
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-secondary-dark);
 }
 
 
