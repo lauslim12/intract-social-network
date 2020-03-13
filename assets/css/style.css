@@ -399,6 +399,23 @@ body {
     width: 2rem;
     fill: var(--color-grey-dark-3); }
 
+.search-results__display {
+  display: flex;
+  align-items: center; }
+
+.search-results__profile-picture {
+  flex: 0 0 20%; }
+  .search-results__profile-picture img {
+    max-width: 10rem;
+    max-height: 10rem;
+    min-width: 10rem;
+    min-height: 10rem; }
+
+.search-results__text {
+  flex: 0 0 80%; }
+  .search-results__text p {
+    text-align: right; }
+
 .side-nav {
   font-size: 1.4rem;
   list-style-type: none;

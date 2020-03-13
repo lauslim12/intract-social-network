@@ -1,8 +1,12 @@
 <?php
-include 'templates/header.php';
-include 'src/classes/User.php';
+    include 'templates/header.php';
+    include 'src/classes/User.php';
 
-$query = $_GET['q'];
+    $query = $_GET['q'];
+
+    if($_GET['q'] == NULL) {
+        header("location: index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +26,7 @@ $query = $_GET['q'];
 <body>
     <div class="container">
         <?php
-        include 'templates/navigation.php';
+            include 'templates/navigation.php';
         ?>
 
         <div class="content">
@@ -37,9 +41,9 @@ $query = $_GET['q'];
                         <?php
                         $names = explode(" ", $query);
 
-                        // If user types an underscore, assume that the user is searching for any kind of username.
+                        // If only one word, search both first name and last name AND the username.
                         if (count($names) == 1) {
-                            $user_return_query = mysqli_query($db, "SELECT * FROM users WHERE username LIKE '$query%' AND user_closed = 'no' LIMIT 5");
+                            $user_return_query = mysqli_query($db, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') OR username LIKE '$query%' AND user_closed = 'no' LIMIT 5");
                         }
 
                         // Two words, assume user search for first and last name.
@@ -47,15 +51,16 @@ $query = $_GET['q'];
                             $user_return_query = mysqli_query($db, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed = 'no' LIMIT 5");
                         }
 
-                        // If only one word, search both first name and last name.
+                        // If 0 query, then return and don't do anything.
                         else {
-                            $user_return_query = mysqli_query($db, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed = 'no' LIMIT 5");
+                            return;
                         }
 
                         $num_rows = mysqli_num_rows($user_return_query);
 
-                        if($num_rows == 0) {
-                            echo "<p class='paragraph'>No users found!</p>";
+                        if($num_rows == 0 || strpos($_SERVER['REQUEST_URI'], '+') != false) {
+                            echo "<p class='paragraph--center'>No users found!</p>";
+                            return;
                         }
 
                         if($user_return_query != '') {
@@ -64,17 +69,18 @@ $query = $_GET['q'];
                                 $full_name = $row['first_name'] . " " . $row['last_name'];
 
                                 echo "
-                                    <div class='search__results--display'>
-                                      <a href='" . $row['username'] . "'>
-                                        <div class='search__results--profile-picture'>
-                                          <img src='" . $row['profile_pic'] . "' style='float:left; margin-right: 3rem; max-width: 15rem; max-height: 15rem;'>
+                                    <div class='search-results__display'>
+
+                                        <div class='search-results__profile-picture'>
+                                            <a href='" . $row['username'] . "'>
+                                                <img src='" . $row['profile_pic'] . "'>
+                                            </a>
                                         </div>
                             
-                                        <div class='search__results--text'>
-                                          " . $full_name . "
-                                          <p>" . $row['username'] . "</p> 
+                                        <div class='search-results__text'>
+                                          <p class='paragraph'>" . $full_name . " (" . $row['username'] . ")" . "</p> 
                                         </div>
-                                      </a>
+
                                     </div>
                                   ";
                             }
