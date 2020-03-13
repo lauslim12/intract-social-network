@@ -1,6 +1,10 @@
 # Changelog
 See the changelog of the repository by checking the commit history. The ones listed here are the major progresses.
 
+## Version 3.0 (13/03/2020, 23:45 GMT+7):
+* Completed the second set of features (comments, post with an image, other people's profile)
+* User Interface has been refined.
+
 ## Version 2.0 (10/03/2020, 19:45 GMT+7):
 * Completed the first version of features (login, signup, profile).
 * User Interface has been designed.

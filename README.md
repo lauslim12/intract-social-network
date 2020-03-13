@@ -18,7 +18,7 @@ Catatan Soal:
 -- Label A sampai E done.
 
 - Modul Profile
--- Label A sampai E done. Coba lihat lagi apakah label C (Post with Picture) sudah dikerjakan?
+-- Label A sampai E done.
 
 Don't forget to remove those lines after the midterm assignment is graded. This project is to be open sourced at Nicholas Dwiarto's GitHub.
 
@@ -42,12 +42,12 @@ For now, the website has three features, more will be added as the project progr
 
 TODO:
 * Move all the files into `src/views` directory and `public_html` directory.
-* Database to store the hotel information, reviews, top features, and friends review.
 * Sanitize input with `htmlspecialchars` and `filter_var()` after `strip_tags()` in register and login handler.
 * Add prepared statements to the User and Post class, also change to OOP!
 * Tidy up the SQL and the bound parameters.
 * Messaging System
 * IBM Cloud Native Applications (IBM Watson Assistant or IBM Natural Lang. Understanding)
+* Database to store the hotel information, reviews, top features, and friends review.
 * User Interface
 
 ## Production Code for SASS/SCSS
@@ -65,7 +65,7 @@ The project structure will follow the Model (Classes), View, Controller style wi
 * Use PHP with version more than 5.5.
 * Use `git pull repo` to fetch the code, or download it by using `git clone`.
 * Copy the repository into the `.htdocs` folder in XAMPP or any other local host web server that you have.
-* Import the `.sql` file.
+* Import the `.sql` file that is located in the `dev` folder.
 * Register an account to be used at the website.
 * Done.
 
