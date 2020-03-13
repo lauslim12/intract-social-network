@@ -5,6 +5,11 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin centerHorizontal {
+  display: flex;
+  justify-content: center;
+}
+
 // Media Query Manager -- Perfect Way Philosophy (Em Formula: Intended Pixels / 16. The result will be in em.)
 @mixin respond($breakpoint) {
 
