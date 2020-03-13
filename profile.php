@@ -1,6 +1,7 @@
 <?php 
   include 'templates/header.php';
   include 'src/classes/User.php';
+  include 'src/controllers/handlers/change_profile_picture.php';
 
   if(isset($_GET['profile_username'])) {
     $username = $_GET['profile_username'];
@@ -46,6 +47,7 @@
 
               <div class="profile__content">
                 <?php echo "<p class='paragraph--bold'>" . $user_search['first_name'] . " " . $user_search['last_name'] . "</p>"; ?>
+                <?php echo "<p class='paragraph'>" . $user_search['birthday'] .  "</p>"; ?>
                   
                 <div class="profile__text-gallery">
                   <?php echo "<p class='profile__text-gallery__text-par'>Posts " . $user_search['num_posts'] . "</p>"; ?>
@@ -63,11 +65,12 @@
               if($user_search['username'] == $user_logged_in) {
                 echo "
                 <div class='profile__change-picture'>
-                  <form action='src/controllers/handlers/change_profile_picture.php' method='POST' enctype='multipart/form-data'>
+                  <form action='' method='POST' enctype='multipart/form-data'>
                     <p class='paragraph'>Change your profile picture here:</p>
                     <input type='hidden' name='username' value=$user_logged_in readonly/>
                     <input type='file' name='fileToUpload' id='fileToUpload'>
                     <input type='submit' value='Upload Image' name='submit' class='btn-inline'>
+                    $error_message
                   </form>
                 </div>
                 ";
