@@ -9,6 +9,18 @@
     margin-bottom: 1rem;
   }
 
+  &__image {
+    display: flex;
+    flex-direction: column;
+    
+    & img {
+      max-height: 20rem;
+      max-width: 20rem;
+      margin-bottom: 1rem;
+    }
+
+  }
+
   &__body {
     display: flex;
     flex-direction: row;

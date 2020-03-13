@@ -478,6 +478,13 @@ body {
   justify-content: space-between; }
   .status-post:not(:last-child) {
     margin-bottom: 1rem; }
+  .status-post__image {
+    display: flex;
+    flex-direction: column; }
+    .status-post__image img {
+      max-height: 20rem;
+      max-width: 20rem;
+      margin-bottom: 1rem; }
   .status-post__body {
     display: flex;
     flex-direction: row;
