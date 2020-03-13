@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS posts (
   user_closed VARCHAR(3),
   deleted VARCHAR(3),
   likes INT,
+  image VARCHAR(255),
   PRIMARY KEY (id)
 );
 
