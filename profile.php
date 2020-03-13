@@ -36,27 +36,40 @@
       ?>
 
       <main class="hotel-view">
-        <div class="search-detail detail">
+        <div class="profile-detail detail">
           <div class="description">
-            <h2>PROFILE</h2>
-            <img src="<?php echo $user_search['profile_pic']; ?>" alt="" style="float:left; margin-right: 3rem; max-width: 15rem; max-height: 15rem;">
-            <p class="paragraph">
-              <?php echo $user_search['first_name'] . " " . $user_search['last_name'] . "<br>"; ?>
-              <?php echo "Posts: " . $user_search['num_posts'] . "<br>"; ?>
-              <?php echo "Likes: " . $user_search['num_likes'] . "<br>"; ?>
-            </p>
 
-            <a href="index.php">Return to Home</a><br><br><br><br>
+            <div class="profile">
+              <div class="profile__profile-picture">
+                <img src="<?php echo $user_search['profile_pic']; ?>" alt="">
+              </div>
+
+              <div class="profile__content">
+                <?php echo "<p class='paragraph--bold'>" . $user_search['first_name'] . " " . $user_search['last_name'] . "</p>"; ?>
+                  
+                <div class="profile__text-gallery">
+                  <?php echo "<p class='profile__text-gallery__text-par'>Posts " . $user_search['num_posts'] . "</p>"; ?>
+                  <?php echo "<p class='profile__text-gallery__text-par'>Likes " . $user_search['num_likes'] . "</p>"; ?>
+                  <p class='profile__text-gallery__text-par'>Friends 0</p>
+                  <p class='profile__text-gallery__text-par'>Reputation 0</p>
+                </div>
+                <a href="index.php">Return to Home</a>
+              </div>
+
+            </div>
+
 
             <?php
               if($user_search['username'] == $user_logged_in) {
                 echo "
-                <form action='src/controllers/handlers/change_profile_picture.php' method='POST' enctype='multipart/form-data'>
-                  Change your profile picture here:<br>
-                  <input type='hidden' name='username' value=$user_logged_in readonly/>
-                  <input type='file' name='fileToUpload' id='fileToUpload'><br>
-                  <input type='submit' value='Upload Image' name='submit'>
-              </form>
+                <div class='profile__change-picture'>
+                  <form action='src/controllers/handlers/change_profile_picture.php' method='POST' enctype='multipart/form-data'>
+                    <p class='paragraph'>Change your profile picture here:</p>
+                    <input type='hidden' name='username' value=$user_logged_in readonly/>
+                    <input type='file' name='fileToUpload' id='fileToUpload'>
+                    <input type='submit' value='Upload Image' name='submit' class='btn-inline'>
+                  </form>
+                </div>
                 ";
               }
 
