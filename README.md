@@ -42,6 +42,7 @@ For now, the website has three features, more will be added as the project progr
 
 TODO:
 * Move all the files into `src/views` directory and `public_html` directory.
+* Database to store the hotel information, reviews, top features, and friends review.
 * Sanitize input with `htmlspecialchars` and `filter_var()` after `strip_tags()` in register and login handler.
 * Add prepared statements to the User and Post class, also change to OOP!
 * Tidy up the SQL and the bound parameters.
