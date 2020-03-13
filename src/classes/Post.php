@@ -8,7 +8,7 @@ class Post {
     $this->user_object = new User($db, $user);
   }
 
-  public function submit_post($body, $user_to) {
+  public function submit_post($body, $user_to, $image_name) {
     $body = strip_tags($body);
     $body = mysqli_real_escape_string($this->db, $body);
 
@@ -28,7 +28,7 @@ class Post {
       }
 
       // Insert post.
-      $query = mysqli_query($this->db, "INSERT INTO posts VALUES ('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0')" );
+      $query = mysqli_query($this->db, "INSERT INTO posts VALUES ('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0', '$image_name')" );
       $returned_id = mysqli_insert_id($this->db);
 
       // Insert notification.
@@ -64,6 +64,7 @@ class Post {
         $body = $row['body'];
         $added_by = $row['added_by'];
         $date_time = $row['date_added'];
+        $image_path = $row['image'];
 
         // Prepare the user_to object variable so it can be read even if not posted to the user.
         if($row['user_to'] == 'none') {
@@ -190,6 +191,22 @@ class Post {
           }
         }
 
+        if($image_path != '') {
+          $image_placeholder = "
+            <div class='status-post__image'>
+              <img src='$image_path' />
+              <p class='paragraph'>$body</p>
+            </div>
+          ";
+        }
+        else {
+          $image_placeholder = "
+            <div class='status-post__image'>
+              <p class='paragraph'>$body</p>
+            </div>
+          ";
+        }
+
         // Concat the strings if more comes up with the loop.
         // Because the function is run in index.php, the path is displayed as is.
         $str .= 
@@ -205,11 +222,11 @@ class Post {
           </div>
 
           <div class='status-post__body'>
-            <p class='paragraph'>$body</p>
+            $image_placeholder
           </div>
 
           <div class='status-post__comments' >
-            <p onClick='javscript:toggle$id()'>Comments($comments_number)</p>
+            <p onClick='javscript:toggle$id()'>Comments ($comments_number)</p>
           </div>
 
           <div class='post_comment' id='toggle_comment$id' style='display: none;'>
