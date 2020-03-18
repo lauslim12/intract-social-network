@@ -5,6 +5,8 @@ assets/images/posts/
 assets/images/profile_pics/profile_users
 !assets/images/profile_pics/user.jpg
 
+.documents/
+
 # Logs
 logs
 *.log
