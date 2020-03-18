@@ -1,3 +1,10 @@
+# Ignore everything media related except for sample files, as the database will be populated again by the user.
+assets/images/posts/
+!assets/images/posts/sample.jpg
+
+assets/images/profile_pics/profile_users
+!assets/images/profile_pics/user.jpg
+
 # Logs
 logs
 *.log
