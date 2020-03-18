@@ -71,4 +71,7 @@ The project structure will follow the Model (Classes), View, Controller style wi
 
 For Developers,
 * You can use `npm install` in order to modify the SASS file and or production CSS code.
+* Then, utilize `npm start` to start the production SASS code.
+* The production SASS code is to auto compile the SASS code to CSS.
+* Use `npm run build:project` to concat, auto prefix, and compress the SASS/CSS code.
 * Without `npm install`, it is still possible to use the website application though, as the node packages are only used for development dependencies.
