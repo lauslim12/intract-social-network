@@ -71,7 +71,7 @@
             echo $random_str;
           ?> class="form-view__login--captcha" readonly><br>
 
-          <input type="text" name="login_captcha_user" placeholder="Please type the text above" /><br>
+          <input type="text" name="login_captcha_user" placeholder="Please type the text above" required autocomplete="off" /><br>
           <?php
             if(in_array("Invalid captcha!<br>", $error_array)) {
               echo "Invalid captcha!<br>";
@@ -105,8 +105,8 @@
             if(in_array("Username is already in use!", $error_array)) {
               echo "Username is already in use!<br>"; 
             }
-            else if(in_array("Username cannot contain spaces!<br>", $error_array)) {
-              echo "Username cannot contain spaces!<br>";
+            else if(in_array("Username cannot contain spaces and can only contain alphanumeric characters!<br>", $error_array)) {
+              echo "Username cannot contain spaces and can only contain alphanumeric characters!<br>";
             }
           ?>
 

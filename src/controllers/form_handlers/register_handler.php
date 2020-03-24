@@ -24,8 +24,8 @@
     $username = strip_tags($_POST['username']);
     $username = strtolower($username);
     
-    if(preg_match('/\s/', $username)) {
-      array_push($error_array, "Username cannot contain spaces!<br>");
+    if(preg_match('/\s/', $username) || preg_match('/[^a-zA-Z0-9]+/', $username)) {
+      array_push($error_array, "Username cannot contain spaces and can only contain alphanumeric characters!<br>");
     }
 
     $email = strip_tags($_POST['email']);
