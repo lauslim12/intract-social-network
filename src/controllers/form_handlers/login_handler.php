@@ -1,6 +1,6 @@
 <?php
   if(isset($_POST['login_button'])) {
-    $username = $_POST['login_username'];
+    $username = strtolower($_POST['login_username']);
     $password = $_POST['login_password'];
     $captcha_system = $_POST['login_captcha_system'];
     $captcha_user = $_POST['login_captcha_user'];
