@@ -53,6 +53,6 @@
   </ul>
 
   <div class="legal">
-    &copy; 2020 by Intract and Bordeaux. All Rights Reserved.
+    &copy; 2020 by Intract, Bordeaux, Trillo. All Rights Reserved.
   </div>
 </nav>

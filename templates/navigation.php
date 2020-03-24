@@ -12,6 +12,14 @@
 
   <nav class="user-nav">
     <div class="user-nav__icon-box">
+      <a href='https://github.com/lauslim12/intract-social-network'>
+        <svg class="user-nav__icon">
+          <use xlink:href="assets/images/svg/sprite.svg#icon-github"></use>
+        </svg>
+      </a>
+    </div>
+
+    <div class="user-nav__icon-box">
       <svg class="user-nav__icon">
         <use xlink:href="assets/images/svg/sprite.svg#icon-bookmark"></use>
       </svg>
