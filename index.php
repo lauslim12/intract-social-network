@@ -189,7 +189,7 @@
                     <div class="detail">
                         <div class="description--posts">
                             <h2>REVIEWS</h2>
-                            <form action='' method="POST" enctype='multipart/form-data'>
+                            <form action='' method="POST" enctype='multipart/form-data' class='post-form'>
                                 <input type="file" name="fileToUpload" id="fileToUpload" />
                                 <textarea name="post_text" id="post_text" rows="5" placeholder="A penny for your thoughts? Or want to share something with an image?"></textarea>
                                 <input type="submit" value="Post" name="post" id="post_button" class="btn-inline">
