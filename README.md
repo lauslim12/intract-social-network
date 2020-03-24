@@ -1,26 +1,6 @@
 # Intract Social Networking Site
 Intract social networking site, built with PHP, MariaDB, JavaScript. The theme is a social network for the reviews of Bordeaux Hotel of France.
-
-## Catatan Khusus Kuliah
-Jobdesc:
-- Sign Up System -> Nicholas Dwiarto, Sebastian
-- Login System -> Nicholas Dwiarto, Sinzie Winata
-- Profile System (Ganti DP, Display Information) -> Nicholas Dwiarto, Attar Kusuma Pratiwa (Ganti DP OTW Progress)
-- Profile System (Posts, Comments, Search) -> Nicholas Dwiarto
-- Infinite Scrolling -> Nicholas Dwiarto
-- User Interface -> Nicholas Dwiarto (SCSS), Attar Kusuma Pratiwa (Assets), Sebastian (Assets), Sinzie Winata (Assets)
-
-Catatan Soal:
-- Modul Signup
--- Label A sampai G done.
-
-- Modul Login
--- Label A sampai E done.
-
-- Modul Profile
--- Label A sampai E done.
-
-Don't forget to remove those lines after the midterm assignment is graded. This project is to be open sourced at Nicholas Dwiarto's GitHub.
+Website is live at: https://nicholasdw.com/Intract
 
 ## Architecture / Philosophies
 * Object Oriented.
@@ -30,8 +10,11 @@ Don't forget to remove those lines after the midterm assignment is graded. This 
 * Block, Element, Modifier SCSS Methodology for Styling.
 * Usage of Agile Process Model.
 * Security Software Design and Development Process.
-* Hosted on a Cloud Provider (Microsoft Azure).
+* Hosted on a Cloud Provider.
 * Coded in English.
+
+## Design Architecture
+* Utilizing SASS with CSS Flexbox. The design used is inspired from Jonas Schmedtmann's design, my teacher at SASS Bootcamp.
 
 ## Features
 For now, the website has three features, more will be added as the project progresses.
