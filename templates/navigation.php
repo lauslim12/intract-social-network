@@ -1,5 +1,7 @@
 <header class="header">
-  <img src="assets/images/icons/logo.png" alt="Trillo logo" class="logo">
+  <a href='index.php'>
+    <img src="assets/images/icons/logo.png" alt="Trillo logo" class="logo">
+  </a>
 
   <form action="search.php" class="search" name="search_form">
     <input type="text" class="search__input" name="q" autocomplete="off" placeholder="Search other reviewers...">
