@@ -1,3 +1,7 @@
+# Ignore compiled files (CSS only).
+assets/css/*
+!assets/css/icons-font.css
+
 # Ignore everything media related except for sample files, as the database will be populated again by the user.
 assets/images/posts/
 !assets/images/posts/sample.jpg
