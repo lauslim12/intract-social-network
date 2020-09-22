@@ -1,6 +1,5 @@
 # Intract Social Networking Site
 Intract social networking site, built with PHP, MariaDB, JavaScript. The theme is a social network for the reviews of Bordeaux Hotel of France.
-Website is live at: https://nicholasdw.com/Intract
 
 ## Architecture / Philosophies
 * Object Oriented.
@@ -42,7 +41,7 @@ TODO:
 * Run all for production code.
 
 ## Project Structure
-The project structure will follow the Model (Classes), View, Controller style with a mixed addition of PHP Official Structure from https://docs.php.earth/faq/misc/structure/, and PHP Standards Recommendation (PSR) from http://www.php-fig.org/psr/.
+The project structure will follow the Model (Classes), View, Controller style with a mixed addition of [PHP Official Structure](https://docs.php.earth/faq/misc/structure/), and [PHP Standards Recommendation (PSR)](http://www.php-fig.org/psr/).
 
 ## Installations and Usage
 * Use PHP with version more than 5.5.
