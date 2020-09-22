@@ -48,6 +48,7 @@ The project structure will follow the Model (Classes), View, Controller style wi
 * Use `git pull repo` to fetch the code, or download it by using `git clone`.
 * Copy the repository into the `.htdocs` folder in XAMPP or any other local host web server that you have.
 * Import the `.sql` file that is located in the `dev` folder.
+* Run `npm install` to install the dependencies, then run `npm run build:project`.
 * Register an account to be used at the website.
 * Done.
 
@@ -56,4 +57,3 @@ For Developers,
 * Then, utilize `npm start` to start the production SASS code.
 * The production SASS code is to auto compile the SASS code to CSS.
 * Use `npm run build:project` to concat, auto prefix, and compress the SASS/CSS code.
-* Without `npm install`, it is still possible to use the website application though, as the node packages are only used for development dependencies.
